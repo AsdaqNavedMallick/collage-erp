@@ -1,5 +1,6 @@
 const express = require("express");
 const verifyToken = require("../middleware/authMiddleware");
+const adminOnly = require("../middleware/adminMiddleware");
 const router = express.Router();
 const db = require("../config/db");
 
@@ -84,7 +85,7 @@ router.put("/:id", (req, res) => {
 });
 
 // DELETE STUDENT
-router.delete("/:id", (req, res) => {
+router.delete("/:id", verifyToken, adminOnly, (req, res) => {
   const { id } = req.params;
 
   const sql = "DELETE FROM student WHERE student_id = ?";
