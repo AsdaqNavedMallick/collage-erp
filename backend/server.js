@@ -9,6 +9,7 @@ const studentRoutes = require("./routes/studentRoutes");
 const authRoutes = require("./routes/authRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 
+
 const app = express();
 
 app.use(cors());
