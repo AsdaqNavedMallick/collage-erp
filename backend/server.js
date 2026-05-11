@@ -7,6 +7,7 @@ const db = require("./config/db");
 
 const studentRoutes = require("./routes/studentRoutes");
 const authRoutes = require("./routes/authRoutes");
+const courseRoutes = require("./routes/courseRoutes");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use("/api/students", studentRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/courses", courseRoutes);
 
 app.get("/", (req, res) => {
   res.send("College ERP Backend Running");
